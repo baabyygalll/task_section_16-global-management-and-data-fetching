@@ -32,9 +32,22 @@ const todoReducer = createSlice({
             state.value = state.value.filter((value) => {
                 return value.id !== id;
             });
+            console.log(state.value)
+        },
+        handleComplete: (state, action) => {
+            
+            state.value = state.value.map((value)=>{
+                if(value.id === action.payload){
+                    value.completed = !value.completed;
+                }
+                return value;
+            })
+
+            console.log(state.value)
         }
+
     }
 });
 
-export const { addTodo, delTodo } = todoReducer.actions
+export const { addTodo, delTodo, handleComplete } = todoReducer.actions
 export default todoReducer.reducer;

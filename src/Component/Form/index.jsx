@@ -28,6 +28,7 @@ const Form = () => {
          );
        }
        e.preventDefault();
+       setInputTodo({value: ""})
      };
 
 
